@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            width: 100%;
+            height: 2000px;
+        }
+        .div1{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            background: paleturquoise;
+            font-size: 50px;
+            line-height: 100px;
+            display: none;
+            position: fixed;
+
+        }
+        .div1.div2{
+            display: block;
+        }
+       
+        #btn{  
+            width: 50px;
+            height: 50px;
+            background: orange;
+            border: none;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1 " >这是顶部</div>
+    <button id="btn" >返回顶部</button>
+
+    <script>
+        //获取元素
+        var d = document.querySelector('.div1')
+        //执行函数，完成目标
+        window.onscroll=function(){
+            //获取滚动条位置
+                var mytop =document.documentElement.scrollTop 
+                //位置判定
+                if(mytop>=100){  
+                    //添加类名
+                    d.classList.add('div2')
+                }
+                
+                else{     
+                    //删除类名 
+                        d.classList.remove('div2')
+                    }
+        }
+                       
+        //返回顶部
+         btn.onclick = function () {
+      // 设置一个定时器, 来让滚动条向上滚动
+      var timer = 0
+      timer = setInterval(function () {
+        document.documentElement.scrollTop -= 30
+        // 停止滚动到目标位置以后停止定时器
+        if (document.documentElement.scrollTop <= 0) {
+          clearInterval(timer)
+        }
+      }, 30)
+    }
+    </script>
+</body>
+</html>
